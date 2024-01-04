@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Skills</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Express Dev Skills</h1>
+    <h1>Express DevSkills</h1>
     <ul>
       <% devskills.forEach(function(s) { %>
         <li>
-          <%= s.devskill %>
+          <a href="/devskills/<%= s.id %>"><%= s.devskill %></a>
             - 
           <%= s.done ? 'done' : 'not done' %>
         </li>

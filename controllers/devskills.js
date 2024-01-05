@@ -3,17 +3,34 @@ const Devskill = require('../models/devskill');
 
 module.exports = {
     index,
-    show
+    show,
+    new: newDevskill,
+    create,
+    delete: deleteDevskill
   };
 
-  function show(req, res) {
-  
-    const devskill = Devskill.getOne(req.params.id);
-    res.render('devskills/show', { devskill });
-  }
+function deleteDevskill(req, res) {
+  Devskill.deleteOne(req.params.id);
+  res.redirect('/devskills');
+}
 
-  function index(req, res) {
-    res.render('devskills/index', {
-      devskills: Devskill.getAll()
-    });
-  }
+function create(req, res) {
+  console.log(req.body);
+  Devskill.create(req.body);
+  res.redirect('/devskills');
+}
+
+function newDevskill(req, res) {
+  res.render('devskills/new', { title: 'New Skill' });
+}
+
+function show(req, res) {
+  const devskill = Devskill.getOne(req.params.id);
+  res.render('devskills/show', { devskill });
+}
+
+function index(req, res) {
+  res.render('devskills/index', {
+  devskills: Devskill.getAll()
+  });
+}

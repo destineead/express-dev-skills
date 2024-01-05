@@ -9,11 +9,19 @@
     <ul>
       <% devskills.forEach(function(s) { %>
         <li>
+          <form 
+            action="/devskills/<%= s.id %>?_method=DELETE"
+            method="POST"
+            class="delete-form" 
+          >
+            <button type="submit">X</button>
+          </form>
           <a href="/devskills/<%= s.id %>"><%= s.devskill %></a>
             - 
           <%= s.done ? 'done' : 'not done' %>
         </li>
       <% }); %>
     </ul>
+    <a href="/devskills/new">Add Skill</a>
   </body>
 </html>

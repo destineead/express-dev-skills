@@ -11,10 +11,9 @@ const devskills = [
     deleteOne
   };
 	
-
 function deleteOne(id) {
   id = parseInt(id);
-  const idx = devskills.findIndex(devskill => devskill.id === id);
+  const idx = devskills.findIndex((s) => s.id === id);
   devskills.splice(idx, 1)
 }
 
@@ -26,11 +25,11 @@ function create(devskill) {
   devskills.push(devskill);
 }
   
-  function getOne(id) {
-    id = parseInt(id);
-    return devskills.find((devskill) => devskill.id === id);
-  }
+function getOne(id) {
+  id = parseInt(id);
+  return devskills.find((devskill) => devskill.id === id);
+}
 
-  function getAll() {
-    return devskills;
-  }
+function getAll() {
+  return devskills;
+}
